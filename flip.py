@@ -6,14 +6,18 @@
 
 import sys
 import csv
+import search
 
 tabla = []
+cel_tabla = []
 
-def tabla_ini(ini_fajl):
+def tabla_ini(sor, oszlop, cellap, ini_fajl):
     with open(ini_fajl, 'r') as f:
         r = csv.reader(f)
         for s in r:
             tabla.append(s)
+    for i in range(sor):
+        cel_tabla.append([cellap for j in range(oszlop)])
 
 def main():
     print("Flip")
@@ -25,8 +29,8 @@ def main():
         return
 
     # Argumentumok változókhoz rendelése
-    sor      = sys.argv[1]
-    oszlop   = sys.argv[2]
+    sor      = int(sys.argv[1])
+    oszlop   = int(sys.argv[2])
     elolap   = sys.argv[3]
     hatlap   = sys.argv[4]
     cellap   = sys.argv[5]
@@ -38,7 +42,7 @@ def main():
         return
 
     # Tábla inicializálása
-    tabla_ini(ini_fajl)
+    tabla_ini(sor, oszlop, cellap, ini_fajl)
 
 if __name__ == "__main__":
     main()
