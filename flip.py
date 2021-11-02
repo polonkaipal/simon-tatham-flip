@@ -1,4 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: Pál Polonkai
+"""
 
 import sys
 import csv
