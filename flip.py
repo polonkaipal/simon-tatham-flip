@@ -20,6 +20,35 @@ def tabla_ini(sor, oszlop, cellap, ini_fajl):
     for i in range(sor):
         cel_tabla.append([cellap for j in range(oszlop)])
 
+# Cseréhez segédfüggvény - mindig a másikat adja vissza:
+def masikat(x, a, b):
+    if x == a:
+        return b
+    elif x == b:
+        return a
+    return x
+
+# Csere implementálása
+def csere(tabla, sor, oszlop, i, j, elolap, hatlap):
+    # Önmaga cserélése
+    tabla[i][j] = masikat(tabla[i][j], elolap, hatlap)
+
+    # Felette levő cserélése (ha van)
+    if i - 1 >= 0:
+        tabla[i - 1][j] = masikat(tabla[i - 1][j], elolap, hatlap)
+
+    # Jobbra levő cserélése (ha van)
+    if j + 1 < oszlop:
+        tabla[i][j + 1] = masikat(tabla[i][j + 1], elolap, hatlap)
+
+    # Alatta levő cserélése (ha van)
+    if (i + 1) < sor:
+        tabla[i + 1][j] = masikat(tabla[i + 1][j], elolap, hatlap)
+
+    # Balra levő cserélése (ha van)
+    if j - 1 >= 0:
+        tabla[i][j - 1] = masikat(tabla[i][j - 1], elolap, hatlap)
+
 def main():
     print("Flip")
 
