@@ -11,6 +11,7 @@ import search
 tabla = []
 cel_tabla = []
 
+# Táblainicializálása és a céltábla elkészítése
 def tabla_ini(sor, oszlop, cellap, ini_fajl):
     with open(ini_fajl, 'r') as f:
         r = csv.reader(f)
